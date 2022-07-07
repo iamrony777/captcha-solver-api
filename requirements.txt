@@ -1,8 +1,8 @@
 python-multipart
 Pillow
 requests
-fastapi==0.78.0
-uvicorn[standard]==0.18.2
-tensorflow-cpu==2.7.2
+fastapi
+opencv-python
+uvicorn[standard]
 tensorflow-object-detection[tf]
-opencv-python==4.6.0.66
+tensorflow-cpu==2.7.2
