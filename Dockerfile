@@ -1,4 +1,4 @@
-FROM python:3.7.13-slim-buster
+FROM python:3.7-slim
 
 WORKDIR /app
 
@@ -19,7 +19,7 @@ RUN apt update -y && \
     mv protoc/bin/protoc /usr/local/bin/ && \
     mv protoc/include/google/protobuf /usr/local/include/ && \
     rm -rf protoc*
-    
+
 RUN pip install -U pip setuptools wheel && \
     pip install --no-cache-dir -r requirements.txt
 
