@@ -4,5 +4,7 @@ Pillow
 requests
 fastapi
 opencv-python
-uvicorn[standard]
+uvicorn
+watchfiles
+uvloop
 tensorflow-object-detection[tf]
