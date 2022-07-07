@@ -18,9 +18,8 @@ RUN apt update -y && \
     unzip protoc.zip -d protoc && \
     mv protoc/bin/protoc /usr/local/bin/ && \
     mv protoc/include/google/protobuf /usr/local/include/ && \
-    rm -rf protoc*  && \
-    chmod +x *.sh
-
+    rm -rf protoc*
+    
 RUN pip install -U pip setuptools wheel && \
     pip install --no-cache-dir -r requirements.txt
 
