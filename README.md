@@ -1,35 +1,4 @@
-# Captcha Solver API
-
-Title says it all
-
-## Docs
-No docs needed, check example folder for captcha (only one type of captcha supported for now). 
-
-1. Make request 
-2. Get solved captcha as json
-
-Also try [Swagger UI Docs](https://captcha-solver-api.herokuapp.com/docs) with captcha from [example](/example/) folder
-## Example
-
-#### JAVDB
-
-[More captchas](/example/javdb/)
-
-![captcha](./example/javdb/g.png)
-
-```bash
-# Request via cURL
-curl -s -X 'POST' \
-  'https://captcha-solver-api.herokuapp.com/javdb' \
-  -H 'accept: application/json' \
-  -H 'Content-Type: multipart/form-data' \
-  -F 'file=@example/g.png;type=image/png' | jq . # "jq ." optional
-```
-```json
-{
-  "solved": "xiwlk"
-}
-```
+# Captcha Solver API | Build Layer
 
 #### Links
 - [API / Site link](https://models.cloudflare-storage.workers.dev/) (hosted on heroku free tier so 30sec delay is expected if dyno is sleeping otherwise takes avg 12sec to solve a captcha)

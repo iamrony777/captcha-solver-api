@@ -1,1 +1,0 @@
-web: pyhton main.py

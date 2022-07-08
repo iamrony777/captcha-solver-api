@@ -32,4 +32,4 @@ jobs:
           context: .
           platforms: linux/amd64
           push: true
-          tags: iamrony777/captcha-solver-api:build
+          tags: iamrony777/captcha-solver-api:build-layer
