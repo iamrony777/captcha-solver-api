@@ -32,7 +32,7 @@ curl -s -X 'POST' \
 ```
 
 #### Links
-- [API / Site link](https://models.cloudflare-storage.workers.dev/) (hosted on heroku free tier so 30sec delay is expected if dyno is sleeping otherwise takes avg 12sec to solve a captcha)
+- [API / Site link](https://captcha-solver-api.herokuapp.com/) (hosted on heroku free tier so 30sec delay is expected if dyno is sleeping otherwise takes avg 12sec to solve a captcha)
 
 - [Model Storage](https://models.cloudflare-storage.workers.dev/) (Models are stored on google drive, using public google index to access)
 
