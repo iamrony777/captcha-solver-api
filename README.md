@@ -8,7 +8,7 @@ No docs needed, check example folder for captcha (only one type of captcha suppo
 1. Make request 
 2. Get solved captcha as json
 
-Also try [Swagger UI Docs](https://captcha-solver-api.herokuapp.com/docs) with captcha from [example](/example/) folder
+Also try [Swagger UI Docs](https://captcha-solver-api2.herokuapp.com/docs) with captcha from [example](/example/) folder
 ## Example
 
 #### JAVDB
@@ -20,7 +20,7 @@ Also try [Swagger UI Docs](https://captcha-solver-api.herokuapp.com/docs) with c
 ```bash
 # Request via cURL
 curl -s -X 'POST' \
-  'https://captcha-solver-api.herokuapp.com/javdb' \
+  'https://captcha-solver-api2.herokuapp.com/javdb' \
   -H 'accept: application/json' \
   -H 'Content-Type: multipart/form-data' \
   -F 'file=@example/g.png;type=image/png' | jq . # "jq ." optional
@@ -32,7 +32,7 @@ curl -s -X 'POST' \
 ```
 
 #### Links
-- [API / Site link](https://captcha-solver-api.herokuapp.com/) (hosted on heroku free tier so 30sec delay is expected if dyno is sleeping otherwise takes avg 12sec to solve a captcha)
+- [API / Site link](https://captcha-solver-api2.herokuapp.com/) (hosted on heroku free tier so 30sec delay is expected if dyno is sleeping otherwise takes avg 12sec to solve a captcha)
 
 - [Model Storage](https://models.cloudflare-storage.workers.dev/) (Models are stored on google drive, using public google index to access)
 
