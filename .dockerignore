@@ -1,3 +1,7 @@
-.env
-test
-__pycache__
+venv
+.vscode
+.venv
+__pycache__*
+_*
+test*
+captcha_1

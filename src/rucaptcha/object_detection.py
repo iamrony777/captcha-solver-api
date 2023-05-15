@@ -8,8 +8,8 @@ from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
 
 
-PATH_TO_FROZEN_GRAPH = '/app/src/javdb/javdb_captcha_model.pb'
-PATH_TO_LABELS = '/app/src/javdb/labels.pbtxt'
+PATH_TO_FROZEN_GRAPH = '/app/src/rucaptcha/rucaptcha_model_370.pb'
+PATH_TO_LABELS = '/app/src/rucaptcha/labels.pbtxt'
 NUM_CLASSES = 24
 
 label_map = label_map_util.load_labelmap(PATH_TO_LABELS)
@@ -97,6 +97,3 @@ def captcha_detection(image_path: str, average_distance_error: int=3) -> str:
                 captcha_string.append(captcha_letter[0])
             return ''.join(captcha_string)
 
-
-# if __name__ == '__main__':
-#     print(Captcha_detection('...'))
