@@ -64,7 +64,7 @@ def captcha_detection(image_path: str, average_distance_error: int=3) -> str:
                             captcha_array.append(
                                 [category_index[symbol].get('name'), mid_x, scores[0][i]])
 
-            captcha_array.sort(key=lambda x: x[1]) # sort by score value
+            captcha_array.sort(key=lambda x: x[1]) # sort by mix_x value
 
             # when two symbols are close, the one with the highest score will be chosen
             symbol_dict = defaultdict(list)
