@@ -9,6 +9,7 @@ import numpy as np
 import tensorflow as tf
 from object_detection.utils import label_map_util
 from object_detection.utils import visualization_utils as vis_util
+from collections import defaultdict
 
 
 PATH_TO_FROZEN_GRAPH = os.path.join(os.getcwd(), 'src/rucaptcha','rucaptcha_model_370.pb')
@@ -54,8 +55,7 @@ def captcha_detection(image_path: str, average_distance_error: int=3) -> str:
                 use_normalized_coordinates=True,
                 line_thickness=2)
 
-            # Bellow we do filtering stuff
-            captcha_array = [] #captcha_array will  correct symbols but not in correct order
+            captcha_array = [] #captcha_array will contain correct symbols but not in correct order
             for i, b in enumerate(boxes[0]):
                 for symbol in range(37):
                     if round(classes[0][i]) == symbol:
@@ -64,12 +64,18 @@ def captcha_detection(image_path: str, average_distance_error: int=3) -> str:
                             captcha_array.append(
                                 [category_index[symbol].get('name'), mid_x, scores[0][i]])
 
-            for _ in range(20):
-                for captcha_number in range(len(captcha_array)-1):
-                    if captcha_array[captcha_number][1] > captcha_array[captcha_number+1][1]:
-                        temporary_captcha = captcha_array[captcha_number]
-                        captcha_array[captcha_number] = captcha_array[captcha_number+1]
-                        captcha_array[captcha_number+1] = temporary_captcha
+            captcha_array.sort(key=lambda x: x[1]) # sort by score value
+
+            # when two symbols are close, the one with the highest score will be chosen
+            symbol_dict = defaultdict(list)
+            for symbol, x, score in captcha_array:
+                symbol_dict[symbol].append((x, score))
+
+            captcha_array = []
+            for symbol, xs_scores in symbol_dict.items():
+                x_scores_sorted = sorted(xs_scores, key=lambda x: -x[1])
+                captcha_array.append([symbol, x_scores_sorted[0][0], x_scores_sorted[0][1]])
+
 
             # Get final string from filtered CAPTCHA array
             captcha_string = []
@@ -78,5 +84,5 @@ def captcha_detection(image_path: str, average_distance_error: int=3) -> str:
             return ''.join(captcha_string)
 
 if __name__ == "__main__":
-    captcha = captcha_detection('example/rucaptcha/d.png')
+    captcha = captcha_detection('captcha_1684249987.png')
     print(captcha)
