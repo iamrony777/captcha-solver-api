@@ -1,8 +1,9 @@
-"""file name says it all"""
-# Credits: https://github.com/pythonlessons/CAPTCHA-solver
-
+# ENV
 import os
-import time
+os.environ['TF_ENABLE_ONEDNN_OPTS'] = '0'
+os.environ['CUDA_VISIBLE_DEVICES'] = ''
+os.environ['VERBOSE'] = '1'
+
 import cv2
 import numpy as np
 import tensorflow as tf
@@ -26,8 +27,6 @@ with detection_graph.as_default():
         od_graph_def.ParseFromString(serialized_graph)
         tf.import_graph_def(od_graph_def, name='')
 
-
-# Detection
 def captcha_detection(image_path: str, average_distance_error: int=3) -> str:
     """Reads a captcha and cracks its contents"""
     with detection_graph.as_default():

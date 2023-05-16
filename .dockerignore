@@ -1,7 +1,8 @@
-venv
 .vscode
-.venv
+.venv*
 __pycache__*
 _*
-test*
+*test*
+*example*
 captcha_1
+*.pb
