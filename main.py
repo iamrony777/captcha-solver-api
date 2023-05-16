@@ -9,7 +9,7 @@ from fastapi import BackgroundTasks, FastAPI, File, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from PIL import Image
 
-from src.rucaptcha.object_detection import captcha_detection
+from src.rucaptcha.prediction import captcha_detection
 
 asyncio.set_event_loop_policy(uvloop.EventLoopPolicy())
 
